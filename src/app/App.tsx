@@ -1,9 +1,11 @@
+import Header from '../components/layout/header/Header';
+
 function App() {
-  return (
-    <>
-      <div>LinkUp project</div>
-    </>
-  );
+	return (
+		<>
+			<Header />
+		</>
+	);
 }
 
 export default App;
