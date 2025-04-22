@@ -1,6 +1,7 @@
 @use '../../../assets/scss/vars/index.scss' as *;
 
 .header {
+	grid-area: header;
 	position: sticky;
 	top: 0;
 	left: 0;

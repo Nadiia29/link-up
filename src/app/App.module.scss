@@ -1,0 +1,16 @@
+.app {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+		'header header'
+		'sidebar main';
+	min-height: 100vh;
+	gap: 5px;
+}
+
+.main {
+	grid-area: main;
+	padding: 10px;
+	background: #e3effa;
+}
