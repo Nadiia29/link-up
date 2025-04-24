@@ -1,14 +1,9 @@
 import styles from '../../assets/scss/_LoginPage.module.scss';
 import { setAuth } from '../../utils/auth';
 
-interface Props {
-	onLogin: () => void;
-}
-
-const LoginPage: React.FC<Props> = ({ onLogin }) => {
+const LoginPage: React.FC = () => {
 	const handleLogin = () => {
 		setAuth(true);
-		onLogin();
 	};
 
 	return (
