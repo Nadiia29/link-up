@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from '../components/layout/header/Header';
 import Sidebar from '../components/layout/sidebar/Sidebar';
-import LoginPage from '../pages/login/LoginPage';
 import styles from './App.module.scss';
 import HomePage from '../pages/login/HomePage';
+import LoginPage from '../pages/login/LoginPage';
 
 function App() {
 	return (
