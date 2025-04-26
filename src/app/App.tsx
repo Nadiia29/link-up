@@ -1,17 +1,18 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from '../components/layout/header/Header';
 import Sidebar from '../components/layout/sidebar/Sidebar';
 import styles from './App.module.scss';
 import HomePage from '../pages/login/HomePage';
 import LoginPage from '../pages/login/LoginPage';
 import { useEffect, useState } from 'react';
-import { getAuth } from '../utils/auth';
+import { checkAuth } from '../utils/auth';
+import PrivateRoute from '../components/routes/PrivateRoute';
 
 function App() {
 	const [isAuth, setIsAuth] = useState(false);
 
 	useEffect(() => {
-		setIsAuth(getAuth());
+		setIsAuth(checkAuth());
 	}, []);
 
 	return (
@@ -21,14 +22,11 @@ function App() {
 
 			<main className={styles.main}>
 				<Routes>
-					<Route
-						path='/login'
-						element={isAuth ? <Navigate to='/' replace /> : <LoginPage />}
-					/>
-					<Route
-						path='/'
-						element={isAuth ? <HomePage /> : <Navigate to='/login' replace />}
-					/>
+					<Route path='/login' element={<LoginPage />} />
+
+					<Route element={<PrivateRoute />}>
+						<Route path='/' element={<HomePage />} />
+					</Route>
 				</Routes>
 			</main>
 		</div>
