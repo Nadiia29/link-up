@@ -4,8 +4,17 @@ import Sidebar from '../components/layout/sidebar/Sidebar';
 import styles from './App.module.scss';
 import HomePage from '../pages/login/HomePage';
 import LoginPage from '../pages/login/LoginPage';
+import { useEffect, useState } from 'react';
+import { checkAuth } from '../utils/auth';
+import PrivateRoute from '../components/routes/PrivateRoute';
 
 function App() {
+	const [isAuth, setIsAuth] = useState(false);
+
+	useEffect(() => {
+		setIsAuth(checkAuth());
+	}, []);
+
 	return (
 		<div className={styles.app}>
 			<Header />
@@ -14,7 +23,10 @@ function App() {
 			<main className={styles.main}>
 				<Routes>
 					<Route path='/login' element={<LoginPage />} />
-					<Route path='/' element={<HomePage />} />
+
+					<Route element={<PrivateRoute />}>
+						<Route path='/' element={<HomePage />} />
+					</Route>
 				</Routes>
 			</main>
 		</div>
