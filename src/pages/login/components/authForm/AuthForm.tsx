@@ -1,7 +1,7 @@
 import { JSX, useState } from 'react';
-import RegisterForm from './RegisterForm';
-import ReminderForm from './ReminderForm';
-import LoginForm from './LoginForm';
+import RegisterForm from '../registerForm/RegisterForm';
+import ReminderForm from '../reminderForm/ReminderForm';
+import LoginForm from '../loginForm/LoginForm';
 
 type FormType = 'login' | 'register' | 'reminder';
 

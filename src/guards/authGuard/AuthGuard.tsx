@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { checkAuth } from '../../utils/auth';
 
-const PrivateRoute: React.FC = () => {
+const AuthGuard: React.FC = () => {
 	const isAuth = checkAuth();
 
 	if (!isAuth) {
@@ -12,4 +12,4 @@ const PrivateRoute: React.FC = () => {
 	return <Outlet />;
 };
 
-export default PrivateRoute;
+export default AuthGuard;
