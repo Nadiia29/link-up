@@ -1,4 +1,4 @@
-import styles from '../../assets/scss/_LoginPage.module.scss';
+import styles from './loginPage.module.scss';
 import { setAuth } from '../../utils/auth';
 
 const LoginPage: React.FC = () => {
