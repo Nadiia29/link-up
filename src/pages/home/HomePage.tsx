@@ -1,5 +1,6 @@
 import { ThemeColor } from '../../app/types';
 import Button from '../../components/ui/button/Button';
+import Input from '../../components/ui/input/Input';
 
 const HomePage = () => {
 	const onClick = () => {
@@ -10,13 +11,16 @@ const HomePage = () => {
 		<div>
 			HomePage
 			<div>
-				<Button
-					onClick={onClick}
-					label='Hello'
-					size='large'
+				<Input
+					placeholder='Enter the text'
 					color={ThemeColor.PURPLE}
-					disabled
+					name='test'
+					// disabled
+					onChange={(e) => console.log(e.target.value)}
 				/>
+			</div>
+			<div>
+				<Button onClick={onClick} label='Hello' color={ThemeColor.PURPLE} disabled />
 			</div>
 		</div>
 	);

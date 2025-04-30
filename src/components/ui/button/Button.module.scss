@@ -5,6 +5,7 @@
 	padding: 4px 20px;
 	font-family: $font_family_main;
 	font-weight: bold;
+	font-size: $font_size_main;
 	font-style: $color_main;
 	background: #fff;
 	border: 1px solid #ccc;
@@ -21,15 +22,15 @@
 	}
 
 	&.default {
-		height: 36px;
+		height: $height_form_el_defaut;
 	}
 
 	&.small {
-		height: 28px;
+		height: $height_form_el_small;
 	}
 
 	&.large {
-		height: 44px;
+		height: $height_form_el_large;
 	}
 
 	&.purple {

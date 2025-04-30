@@ -11,20 +11,22 @@ interface ButtonProps {
 	title?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, size, color, disabled, title, onClick }) => {
-	const buttonLabel = label || 'Submit';
-	const buttonSize: FormElSize = size || 'default';
-	const buttonColor = color || '';
-	const buttonTitle = title || buttonLabel;
-
+const Button: React.FC<ButtonProps> = ({
+	label = 'Submit',
+	size = FormElSize.DEFAULT,
+	color = ThemeColor.PURPLE,
+	disabled,
+	title = '',
+	onClick,
+}) => {
 	return (
 		<button
-			className={`${styles.button} ${styles[buttonSize]} ${styles[buttonColor]}`}
+			className={`${styles.button} ${styles[size]} ${styles[color]}`}
 			disabled={disabled}
-			title={buttonTitle}
+			title={title}
 			onClick={onClick}
 		>
-			{buttonLabel}
+			{label}
 		</button>
 	);
 };

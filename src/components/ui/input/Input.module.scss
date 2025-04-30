@@ -1,0 +1,51 @@
+@use '../../../assets/scss/vars/index.scss' as *;
+
+.input {
+	padding: 4px 10px;
+	border: 1px solid transparent;
+	border-radius: 6px;
+	font-size: $font_size_main;
+	color: $color_main;
+	background: #fff;
+	outline: none;
+	transition: 0.2s;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	&::placeholder {
+		color: #ccc;
+	}
+
+	&.default {
+		height: $height_form_el_defaut;
+	}
+
+	&.small {
+		height: $height_form_el_small;
+	}
+
+	&.large {
+		height: $height_form_el_large;
+	}
+
+	&.purple {
+		border-color: $color_purple_light;
+
+		&:focus,
+		&:hover {
+			border-color: $color_purple_dark;
+		}
+	}
+
+	&.blue {
+		border-color: $color_blue;
+
+		&:focus,
+		&:hover {
+			border-color: $color_blue_dark;
+		}
+	}
+}
