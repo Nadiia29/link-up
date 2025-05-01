@@ -1,5 +1,6 @@
 import { ThemeColor } from '../../app/types';
 import Button from '../../components/ui/button/Button';
+import Checkbox from '../../components/ui/checkbox/checkbox';
 import Input from '../../components/ui/input/Input';
 
 const HomePage = () => {
@@ -22,6 +23,12 @@ const HomePage = () => {
 			<div>
 				<Button onClick={onClick} label='Hello' color={ThemeColor.PURPLE} disabled />
 			</div>
+			<Checkbox
+				name='remember'
+				label='Remember me'
+				onChange={(e) => console.log(e.target.checked)}
+				// disabled
+			/>
 		</div>
 	);
 };
