@@ -1,20 +1,10 @@
 import styles from './loginPage.module.scss';
-import { setAuth } from '../../utils/auth';
+import AuthForm from './components/authForm/AuthForm';
 
 const LoginPage: React.FC = () => {
-	const handleLogin = () => {
-		setAuth(true);
-	};
-
 	return (
-		<div className={styles.container}>
-			<div className={styles.box}>
-				<h2 className={styles.title}>Enter to LinkUp</h2>
-
-				<button className={styles.button} onClick={handleLogin}>
-					Log in
-				</button>
-			</div>
+		<div className={styles.page}>
+			<AuthForm />
 		</div>
 	);
 };
