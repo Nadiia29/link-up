@@ -7,7 +7,7 @@ interface ButtonProps {
 	size?: FormElSize;
 	color?: ThemeColor;
 	disabled?: boolean;
-	onClick: () => void;
+	onClick: (...args: any[]) => void;
 	title?: string;
 }
 

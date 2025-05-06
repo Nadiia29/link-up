@@ -7,17 +7,21 @@ import Input from '../../../../components/ui/input/Input';
 import styles from './loginForm.module.scss';
 import { setAuth } from '../../../../utils/auth';
 
-const LoginForm: React.FC = () => {
+interface LoginFormProps {
+	onFormChange: (type: 'login' | 'register' | 'reminder') => void;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 	const size = FormElSize.LARGE;
 	const [loading, setLoading] = useState(false);
 
-	const onSubmit = () => {
-		setAuth(true);
-		console.log('Submit');
+	const onSubmit = (data: Record<string, unknown>) => {
+		// setAuth(true);
+		console.log(data);
 	};
 
 	return (
-		<Form title='Enter to LinkUp' className={styles.form}>
+		<Form title='Enter to LinkUp' className={styles.form} onSubmit={onSubmit}>
 			<Input
 				size={size}
 				placeholder='email'
@@ -47,6 +51,21 @@ const LoginForm: React.FC = () => {
 				label='Log in'
 				title='Log in'
 				color={ThemeColor.PURPLE}
+				disabled={loading}
+			/>
+
+			<div className={styles['link-wrapper']}>
+				<button className={styles.link} onClick={() => onFormChange('reminder')}>
+					Forgot password
+				</button>
+			</div>
+
+			<Button
+				size={size}
+				onClick={() => onFormChange('register')}
+				label='Сreate an account'
+				title='Сreate an account'
+				color={ThemeColor.BLUE}
 				disabled={loading}
 			/>
 		</Form>
