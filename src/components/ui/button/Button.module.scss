@@ -1,0 +1,59 @@
+@use '../../../assets/scss/vars/index.scss' as *;
+
+.button {
+	width: max-content;
+	padding: 4px 20px;
+	font-family: $font_family_main;
+	font-weight: bold;
+	font-size: $font_size_main;
+	font-style: $color_main;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+
+	&:focus,
+	&:hover:not(:disabled) {
+		background: #f4f4f4;
+	}
+
+	&:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	&.default {
+		height: $height_form_el_defaut;
+	}
+
+	&.small {
+		height: $height_form_el_small;
+	}
+
+	&.large {
+		height: $height_form_el_large;
+	}
+
+	&.purple {
+		color: #fff;
+		background: $color_purple;
+		border-color: $color_purple;
+
+		&:focus,
+		&:hover:not(:disabled) {
+			background: $color_purple_dark;
+			border-color: $color_purple_dark;
+		}
+	}
+
+	&.blue {
+		color: #fff;
+		background: $color_blue;
+		border-color: $color_blue;
+
+		&:focus,
+		&:hover:not(:disabled) {
+			background: $color_blue_dark;
+			border-color: $color_blue_dark;
+		}
+	}
+}

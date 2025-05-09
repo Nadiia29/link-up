@@ -1,0 +1,29 @@
+@use '../../../../assets/scss/vars/index.scss' as *;
+
+.form {
+	width: 500px;
+	padding: 50px;
+	box-shadow: 1px 2px 8px #ccc;
+
+	button {
+		width: 300px;
+		height: 50px;
+		margin: 20px auto 0;
+		background: $color_purple;
+		color: white;
+		border: none;
+		border-radius: 10px;
+	}
+
+	.link-wrapper {
+		text-align: center;
+	}
+
+	.link {
+		&:focus,
+		&:hover:not(:disabled) {
+			background: $color_purple_dark;
+			border-color: $color_purple_dark;
+		}
+	}
+}

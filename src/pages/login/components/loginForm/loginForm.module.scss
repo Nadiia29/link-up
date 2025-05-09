@@ -1,0 +1,32 @@
+@use '../../../../assets/scss/vars/index.scss' as *;
+
+.form {
+	width: 500px;
+	padding: 50px;
+	box-shadow: 1px 2px 8px #ccc;
+
+	button {
+		width: 200px;
+		margin: 25px auto 0;
+	}
+
+	.link-wrapper {
+		border-bottom: 1px solid #ccc;
+		padding-bottom: 25px;
+		text-align: center;
+	}
+
+	.link {
+		margin: 10px 0;
+		align-self: center;
+		color: #555;
+		text-decoration: none;
+		position: relative;
+		background: none;
+		border: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

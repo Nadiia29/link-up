@@ -1,3 +1,5 @@
+@use '../../../assets/scss/vars/index.scss' as *;
+
 .sidebar {
 	grid-area: sidebar;
 	display: flex;
@@ -6,5 +8,5 @@
 	gap: 40px;
 	width: 340px;
 	padding: 50px;
-	background-color: #eeddf9;
+	background-color: $sidebar_bg_purple;
 }
