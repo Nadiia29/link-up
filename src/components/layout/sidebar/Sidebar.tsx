@@ -1,13 +1,8 @@
+import React from 'react';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = () => {
-	if (false) return null;
-
-	return (
-		<aside className={styles.sidebar}>
-			<nav className={styles.nav}></nav>
-		</aside>
-	);
+	return <nav className={styles.nav}></nav>;
 };
 
 export default Sidebar;

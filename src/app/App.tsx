@@ -18,15 +18,18 @@ function App() {
 	return (
 		<div className={styles.app}>
 			<Header />
-			{isAuth && <Sidebar />}
+			{/* {isAuth && <Sidebar />} */}
+			<Sidebar />
 
 			<main className={styles.main}>
 				<Routes>
-					<Route path='/login' element={<LoginPage />} />
+					{/* <Route path='/login' element={<LoginPage />} /> */}
 
-					<Route element={<AuthGuard />}>
+					<Route path='/' element={<HomePage />} />
+
+					{/* <Route element={<AuthGuard />}>
 						<Route path='/' element={<HomePage />} />
-					</Route>
+					</Route> */}
 				</Routes>
 			</main>
 		</div>

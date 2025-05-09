@@ -1,12 +1,11 @@
 @use '../../../assets/scss/vars/index.scss' as *;
 
-.sidebar {
-	grid-area: sidebar;
+.nav {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 40px;
-	width: 340px;
 	padding: 50px;
+	width: 300px;
 	background-color: $sidebar_bg_purple;
 }
