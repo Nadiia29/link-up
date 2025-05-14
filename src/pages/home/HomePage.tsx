@@ -3,6 +3,8 @@ import styles from './homePage.module.scss';
 import Button from '../../components/ui/button/Button';
 import { FormElSize, ThemeColor } from '../../app/types';
 import myImage from './../../assets/images/friends.webp';
+import { Navigate } from 'react-router-dom';
+import Backdrop from '../../components/ui/backdrop/Backdrop';
 
 const HomePage = () => {
 	const [posts, setPosts] = useState([
@@ -22,11 +24,11 @@ const HomePage = () => {
 
 	const [newPost, setNewPost] = useState('');
 
+	return <Navigate to='/profile' />;
+
 	return (
 		<div className={styles.homePage}>
-			<div className={styles.backdrop}>
-				<img src={myImage} alt='image' />
-			</div>
+			<Backdrop />
 
 			<h2 className={styles.title}>News from friends</h2>
 
