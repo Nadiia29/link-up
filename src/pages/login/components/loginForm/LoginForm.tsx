@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FormElSize, ThemeColor } from '../../../../app/types';
 import Button from '../../../../components/ui/button/Button';
 import Checkbox from '../../../../components/ui/checkbox/checkbox';
@@ -12,12 +13,13 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
+	const navigate = useNavigate();
 	const size = FormElSize.LARGE;
 	const [loading, setLoading] = useState(false);
 
 	const onSubmit = (data: Record<string, unknown>) => {
-		// setAuth(true);
-		console.log(data);
+		setAuth(true);
+		navigate('/');
 	};
 
 	return (
