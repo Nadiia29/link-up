@@ -14,7 +14,7 @@ function App() {
 
 	useEffect(() => {
 		setIsAuth(checkAuth());
-	}, [isAuth]);
+	}, []);
 
 	return (
 		<div className={styles.app}>

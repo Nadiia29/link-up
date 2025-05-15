@@ -24,8 +24,6 @@ const HomePage = () => {
 
 	const [newPost, setNewPost] = useState('');
 
-	return <Navigate to='/profile' />;
-
 	return (
 		<div className={styles.homePage}>
 			<Backdrop />

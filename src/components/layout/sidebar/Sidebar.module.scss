@@ -8,4 +8,39 @@
 	padding: 50px;
 	width: 300px;
 	background-color: $sidebar_bg_purple;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.link {
+	a {
+		font-family: Charm;
+		font-size: 34px;
+		font-weight: 400;
+		letter-spacing: 0.7px;
+		color: $color_purple_dark;
+		text-decoration: none;
+
+		transition: all $transition;
+
+		&:hover {
+			color: $color_purple_dark;
+			text-decoration: underline;
+			text-underline-offset: 4px;
+			text-decoration-thickness: 2px;
+		}
+
+		&:focus {
+			color: $color_blue_dark;
+			outline: none;
+		}
+	}
+
+	.active {
+		color: $color_blue;
+	}
 }
