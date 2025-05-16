@@ -8,3 +8,7 @@ export const checkAuth = (): boolean => {
 	const value = localStorage.getItem(AUTH_KEY);
 	return value === 'true';
 };
+
+export const removeAuth = (): void => {
+	localStorage.removeItem(AUTH_KEY);
+};

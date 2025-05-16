@@ -8,24 +8,30 @@
 	right: 0;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	padding: 15px 30px;
 	height: 100px;
 	background-color: $header_bg_purple;
-}
 
-.logo {
-	display: block;
-	width: 70px;
-
-	img {
-		display: block;
-		width: 100%;
+	.wrapper {
+		display: flex;
+		align-items: center;
 	}
-}
 
-.title {
-	font-family: $font_family_second;
-	font-size: 56px;
-	font-weight: 700;
-	margin: 0 0 0 40px;
+	.logo {
+		display: block;
+		width: 70px;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.title {
+		font-family: $font_family_second;
+		font-size: 56px;
+		font-weight: 700;
+		margin-left: 40px;
+	}
 }
