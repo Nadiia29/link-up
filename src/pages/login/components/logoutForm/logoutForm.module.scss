@@ -1,0 +1,25 @@
+@use '../../../../assets/scss/vars/index.scss' as *;
+
+.logoutButton {
+	padding: 8px 10px;
+	font-size: 14px;
+	font-weight: 500;
+	border-radius: 6px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	transition: all $transition_third;
+
+	&:hover {
+		background-color: $color_purple_light;
+	}
+
+	&:disabled {
+		background-color: #aaa;
+		cursor: not-allowed;
+	}
+
+	.btn {
+		transition: all $transition_second;
+	}
+}
