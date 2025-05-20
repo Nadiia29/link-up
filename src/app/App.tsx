@@ -4,17 +4,18 @@ import Sidebar from '../components/layout/sidebar/Sidebar';
 import styles from './App.module.scss';
 import HomePage from '../pages/home/HomePage';
 import LoginPage from '../pages/login/LoginPage';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { checkAuth } from '../utils/auth';
 import AuthGuard from '../guards/authGuard/AuthGuard';
 import ProfilePage from '../pages/profile/Profile';
+import { useAuth } from '../context/AuthContext';
 
 function App() {
-	const [isAuth, setIsAuth] = useState(false);
+	const { isAuth, setIsAuth } = useAuth();
 
 	useEffect(() => {
 		setIsAuth(checkAuth());
-	}, []);
+	}, [setIsAuth]);
 
 	return (
 		<div className={styles.app}>

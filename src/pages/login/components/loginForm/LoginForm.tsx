@@ -6,19 +6,20 @@ import Checkbox from '../../../../components/ui/checkbox/checkbox';
 import Form from '../../../../components/ui/form/Form';
 import Input from '../../../../components/ui/input/Input';
 import styles from './loginForm.module.scss';
-import { setAuth } from '../../../../utils/auth';
+import { useAuth } from '../../../../context/AuthContext';
 
 interface LoginFormProps {
 	onFormChange: (type: 'login' | 'register' | 'reminder') => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
+	const { login } = useAuth();
 	const navigate = useNavigate();
 	const size = FormElSize.LARGE;
 	const [loading, setLoading] = useState(false);
 
 	const onSubmit = (data: Record<string, unknown>) => {
-		setAuth(true);
+		login();
 		navigate('/');
 	};
 

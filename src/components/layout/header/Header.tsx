@@ -2,13 +2,14 @@ import styles from './Header.module.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
 import LogoutForm from '../../../pages/login/components/logoutForm/LogoutForm';
-import { removeAuth } from '../../../utils/auth';
+import { useAuth } from '../../../context/AuthContext';
 
-const Header = () => {
+const Header: React.FC = () => {
 	const navigate = useNavigate();
+	const { logout } = useAuth();
 
 	const handleLogout = () => {
-		removeAuth();
+		logout();
 		navigate('/login');
 	};
 	return (
