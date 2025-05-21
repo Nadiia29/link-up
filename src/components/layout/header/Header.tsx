@@ -12,6 +12,7 @@ const Header: React.FC = () => {
 		logout();
 		navigate('/login');
 	};
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.wrapper}>
