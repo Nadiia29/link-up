@@ -23,8 +23,9 @@ const ReminderForm: React.FC<ReminderFormProps> = ({ onFormChange }) => {
 
 			<Input size={size} placeholder='email' name='email' color={ThemeColor.BLUE} />
 
-			<div className={styles.wrapper}>
+			<div className={styles.buttons}>
 				<Button
+					className={styles.button}
 					size={size}
 					label='find'
 					title='find'
@@ -34,6 +35,7 @@ const ReminderForm: React.FC<ReminderFormProps> = ({ onFormChange }) => {
 				/>
 
 				<Button
+					className={styles.button}
 					size={size}
 					label='cancel'
 					title='cancel'
