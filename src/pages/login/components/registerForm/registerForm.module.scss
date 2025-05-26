@@ -1,9 +1,26 @@
 @use '../../../../assets/scss/vars/index.scss' as *;
+@use '../../../../assets/scss/mixins/mixins' as *;
 
 .form {
-	width: 500px;
+	width: 100%;
+	max-width: 500px;
 	padding: 50px;
 	box-shadow: 1px 2px 8px #ccc;
+
+	@include tablet {
+		padding: 40px;
+		font-size: $font_size_large;
+	}
+
+	@include tablet-sm {
+		padding: 30px;
+		font-size: $font_size_large;
+	}
+
+	@include mobile {
+		padding: 20px;
+		font-size: $font_size_large;
+	}
 
 	button {
 		width: 300px;
@@ -13,6 +30,10 @@
 		color: white;
 		border: none;
 		border-radius: 10px;
+
+		@include mobile {
+			width: 100%;
+		}
 	}
 
 	.link-wrapper {

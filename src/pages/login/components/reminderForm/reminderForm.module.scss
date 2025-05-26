@@ -9,17 +9,17 @@
 
 	@include tablet {
 		padding: 40px;
-		font-size: $font_size_big;
+		font-size: $font_size_large;
 	}
 
 	@include tablet-sm {
 		padding: 30px;
-		font-size: $font_size_big;
+		font-size: $font_size_large;
 	}
 
 	@include mobile {
 		padding: 20px;
-		font-size: $font_size_big;
+		font-size: $font_size_large;
 	}
 
 	.text {
@@ -45,15 +45,15 @@
 			border-radius: 10px;
 
 			@include tablet {
-				font-size: $font_size_large;
+				font-size: $font_size_extraLarge;
 			}
 
 			@include tablet-sm {
-				font-size: $font_size_large;
+				font-size: $font_size_extraLarge;
 			}
 
 			@include mobile {
-				font-size: $font_size_big;
+				font-size: $font_size_large;
 				width: 100%;
 			}
 		}
