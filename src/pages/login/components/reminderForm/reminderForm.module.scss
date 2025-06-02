@@ -45,11 +45,11 @@
 			border-radius: 10px;
 
 			@include tablet {
-				font-size: $font_size_extraLarge;
+				font-size: $font_size_extra_large;
 			}
 
 			@include tablet-sm {
-				font-size: $font_size_extraLarge;
+				font-size: $font_size_extra_large;
 			}
 
 			@include mobile {
