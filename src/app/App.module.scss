@@ -15,4 +15,8 @@
 	grid-area: main;
 	padding: 15px;
 	background: $mainPage_bg_purple;
+
+	// & > * {
+	// 	display: none;
+	// }
 }
