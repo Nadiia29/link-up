@@ -1,13 +1,47 @@
 @use '../../../../assets/scss/vars/index.scss' as *;
+@use '../../../../assets/scss/mixins/mixins' as *;
 
 .form {
 	width: 500px;
 	padding: 50px;
 	box-shadow: 1px 2px 8px #ccc;
 
+	@include tablet {
+		padding: 40px;
+		font-size: $font_size_extra_large;
+	}
+
+	@include tablet-sm {
+		padding: 30px;
+		font-size: $font_size_extra_large;
+	}
+
+	@include mobile {
+		width: 100%;
+		padding: 20px;
+		font-size: $font_size_extra_large;
+	}
+
+	h2 {
+		font-size: $font_size_extra_large;
+	}
+
 	button {
 		width: 200px;
 		margin: 25px auto 0;
+
+		@include tablet {
+			font-size: $font_size_large;
+		}
+
+		@include tablet-sm {
+			font-size: $font_size_large;
+		}
+
+		@include mobile {
+			font-size: $font_size_large;
+			width: 100%;
+		}
 	}
 
 	.link-wrapper {
