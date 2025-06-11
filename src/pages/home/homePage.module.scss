@@ -1,16 +1,33 @@
 @use './../../assets/scss/vars/index.scss' as *;
+@use '../../assets/scss/mixins/mixins' as *;
 
 .homePage {
-	width: 1200px;
+	width: 100%;
+	max-width: 1200px;
 	margin: 0 auto;
 	padding: 18px;
-	font-size: 20px;
+	font-size: $font_size_extra_large;
+
+	@include tablet {
+		width: 90%;
+		font-size: $font_size_large;
+	}
+
+	@include mobile {
+		width: 100%;
+		padding: 10px;
+		font-size: $font_family_main;
+	}
 }
 
 .title {
 	font-size: 26px;
 	margin-bottom: 16px;
 	text-align: center;
+
+	@include mobile {
+		font-size: $font_size_extra_large;
+	}
 }
 
 .createPost {
@@ -28,6 +45,10 @@
 		border-radius: 8px;
 		resize: none;
 		font-size: 14px;
+
+		@include tablet-sm {
+			font-size: 13px;
+		}
 	}
 }
 
@@ -43,12 +64,23 @@
 	padding: 16px;
 	border-radius: 16px;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+	@include tablet-sm {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
 .postAvatar {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
 	margin-right: 16px;
+
+	@include mobile {
+		width: 32px;
+		height: 32px;
+		margin-right: 12px;
+	}
 }
 
 .postMeta {
@@ -63,14 +95,27 @@
 
 .postContent {
 	margin-left: 15px;
+
+	@include tablet-sm {
+		margin-left: 0;
+		margin-top: 10px;
+	}
 }
 
 .postAction {
 	display: flex;
 	gap: 10px;
 	margin-left: 15px;
+
+	@include tablet-sm {
+		margin-left: 0;
+	}
 }
 
 .postAction__button {
 	font-size: 22px;
+
+	@include mobile {
+		font-size: $font_size_large;
+	}
 }

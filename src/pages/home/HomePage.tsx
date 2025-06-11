@@ -2,8 +2,6 @@ import { useState } from 'react';
 import styles from './homePage.module.scss';
 import Button from '../../components/ui/button/Button';
 import { FormElSize, ThemeColor } from '../../app/types';
-import myImage from './../../assets/images/friends.webp';
-import { Navigate } from 'react-router-dom';
 import Backdrop from '../../components/ui/backdrop/Backdrop';
 
 const HomePage = () => {
