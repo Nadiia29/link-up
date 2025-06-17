@@ -7,6 +7,7 @@ import Form from '../../../../components/ui/form/Form';
 import Input from '../../../../components/ui/input/Input';
 import styles from './loginForm.module.scss';
 import { useAuth } from '../../../../context/AuthContext';
+import { loginUser } from '../../../../services/loginUser';
 
 interface LoginFormProps {
 	onFormChange: (type: 'login' | 'register' | 'reminder') => void;
@@ -18,10 +19,42 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 	const size = FormElSize.LARGE;
 	const [loading, setLoading] = useState(false);
 
-	const onSubmit = (data: Record<string, unknown>) => {
-		login();
-		navigate('/');
+	const [formData, setFormData] = useState({ login: '', password: '', remember: false });
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { name, value, type, checked } = e.target;
+		setFormData((prev) => ({
+			...prev,
+			[name]: type === 'checkbox' ? checked : value,
+		}));
 	};
+
+	const onSubmit = async () => {
+		setLoading(true);
+		try {
+			const res = await loginUser({
+				email: formData.login,
+				pass: formData.password,
+			});
+
+			if (!res.ok) {
+				throw new Error('Login failed');
+			}
+
+			const result = await res.json();
+			login(); // або як у тебе працює login()
+			navigate('/');
+		} catch (error) {
+			console.error(error);
+			alert('Invalid credentials');
+		} finally {
+			setLoading(false);
+		}
+	};
+	// const onSubmit = (data: Record<string, unknown>) => {
+	// 	login();
+	// 	navigate('/');
+	// };
 
 	return (
 		<Form title='Enter to LinkUp' className={styles.form} onSubmit={onSubmit}>
@@ -30,7 +63,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 				placeholder='email'
 				color={ThemeColor.PURPLE}
 				name='login'
-				onChange={(e) => console.log(e.target.value)}
+				value={formData.login}
+				onChange={handleChange}
 			/>
 
 			<Input
@@ -39,13 +73,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 				type='password'
 				color={ThemeColor.PURPLE}
 				name='password'
-				onChange={(e) => console.log(e.target.value)}
+				value={formData.password}
+				onChange={handleChange}
 			/>
 
 			<Checkbox
 				name='remember'
 				label='Remember me'
-				onChange={(e) => console.log(e.target.checked)}
+				checked={formData.remember}
+				onChange={handleChange}
 			/>
 
 			<Button
