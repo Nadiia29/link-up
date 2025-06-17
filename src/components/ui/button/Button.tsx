@@ -7,9 +7,10 @@ interface ButtonProps {
 	size?: FormElSize;
 	color?: ThemeColor;
 	disabled?: boolean;
-	onClick: (...args: any[]) => void;
+	onClick?: (...args: any[]) => void;
 	title?: string;
 	className?: string;
+	type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,9 +21,11 @@ const Button: React.FC<ButtonProps> = ({
 	title = '',
 	onClick,
 	className,
+	type = 'button',
 }) => {
 	return (
 		<button
+			type={type ?? 'button'}
 			className={`${styles.button} ${styles[size]} ${styles[color]}  ${className ?? ''}`}
 			disabled={disabled}
 			title={title}
