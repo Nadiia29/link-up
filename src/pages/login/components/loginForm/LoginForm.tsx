@@ -31,6 +31,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 
 	const onSubmit = async () => {
 		setLoading(true);
+
 		try {
 			const res = await loginUser({
 				email: formData.login,
@@ -42,7 +43,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 			}
 
 			const result = await res.json();
-			login(); // або як у тебе працює login()
+			login();
 			navigate('/');
 		} catch (error) {
 			console.error(error);
@@ -51,10 +52,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 			setLoading(false);
 		}
 	};
-	// const onSubmit = (data: Record<string, unknown>) => {
-	// 	login();
-	// 	navigate('/');
-	// };
 
 	return (
 		<Form title='Enter to LinkUp' className={styles.form} onSubmit={onSubmit}>
