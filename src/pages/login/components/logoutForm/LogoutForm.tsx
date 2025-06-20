@@ -9,7 +9,7 @@ interface LogoutFormProps {
 const LogoutForm: React.FC<LogoutFormProps> = ({ onLogout }) => {
 	return (
 		<div className={styles.logoutButton}>
-			<Button className={styles.btn} label='Logout' onClick={onLogout} />
+			<Button className={styles.btn} label='Logout' onClick={onLogout} type='button' />
 		</div>
 	);
 };

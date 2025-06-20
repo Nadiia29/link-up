@@ -4,6 +4,7 @@ import Input from '../../../../components/ui/input/Input';
 import Form from '../../../../components/ui/form/Form';
 import styles from './registerForm.module.scss';
 import Button from '../../../../components/ui/button/Button';
+import { registerUser } from '../../../../services/authService';
 
 interface RegisterFormProps {
 	onFormChange: (type: 'login' | 'register' | 'reminder') => void;
@@ -13,8 +14,30 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onFormChange }) => {
 	const size = FormElSize.LARGE;
 	const [loading, setLoading] = useState(false);
 
-	const onSubmit = (data: Record<string, unknown>) => {
-		console.log('Registration data:', data);
+	const onSubmit = async (data: Record<string, unknown>) => {
+		setLoading(true);
+		try {
+			const response = await registerUser({
+				name: data.name as string,
+				email: data.email as string,
+				pass: data.pass as string,
+			});
+
+			const result = await response.json();
+
+			if (response.ok) {
+				console.log('Successful registration!');
+				onFormChange('login');
+			} else {
+				console.error('Registration error:', result.error);
+				alert(result.error || 'An error occurred during registration.');
+			}
+		} catch (error: any) {
+			console.error('Error:', error.message);
+			alert('Server not responding.');
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	return (
@@ -27,7 +50,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onFormChange }) => {
 				size={size}
 				placeholder='password'
 				type='password'
-				name='password'
+				name='pass'
 				color={ThemeColor.BLUE}
 			/>
 
@@ -37,7 +60,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onFormChange }) => {
 				title='Sign Up'
 				color={ThemeColor.BLUE}
 				disabled={loading}
-				onClick={() => {}}
+				type='submit'
 			/>
 
 			<div className={styles['link-wrapper']}>
