@@ -1,11 +1,12 @@
 export interface HandlerArgs {
-	request: Request;
+    request: Request;
 }
 
 export interface User {
-	id: string;
-	name: string;
-	pass: string;
-	email: string;
-	image: string;
+    id: string;
+    uuid: string;
+    name: string;
+    pass: string;
+    email: string;
+    image: string;
 }
