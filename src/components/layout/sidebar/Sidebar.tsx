@@ -8,6 +8,7 @@ const Sidebar: React.FC = () => {
 	const links = [
 		{ path: '/', label: 'Home' },
 		{ path: '/profile', label: 'Profile' },
+		{ path: '/settings', label: 'Settings' },
 	];
 
 	const toggleSidebar = () => setOpen(!open);

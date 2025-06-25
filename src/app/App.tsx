@@ -9,6 +9,7 @@ import { checkAuth } from '../utils/auth';
 import AuthGuard from '../guards/authGuard/AuthGuard';
 import ProfilePage from '../pages/profile/Profile';
 import { useAuth } from '../context/AuthContext';
+import Settings from '../pages/settings/Settings';
 
 function App() {
 	const { isAuth, setIsAuth } = useAuth();
@@ -29,6 +30,7 @@ function App() {
 					<Route element={<AuthGuard />}>
 						<Route path='/' element={<HomePage />} />
 						<Route path='/profile' element={<ProfilePage />} />
+						<Route path='/settings' element={<Settings />} />
 					</Route>
 				</Routes>
 			</main>
