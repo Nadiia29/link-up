@@ -1,0 +1,64 @@
+@use '../../assets/scss/vars/index.scss' as *;
+
+.settingsWrapper {
+	padding: 32px;
+
+	h1 {
+		font-size: 32px;
+		margin-bottom: 16px;
+	}
+}
+
+.settingsContainer {
+	display: flex;
+	gap: 32px;
+}
+
+.sidebar {
+	min-width: 200px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	button {
+		padding: 12px;
+		background: #aebaf3;
+		border: none;
+		font-size: $font_size_main;
+		text-align: left;
+		cursor: pointer;
+		border-radius: 6px;
+
+		&:hover {
+			background: $header_bg_blue;
+			color: $mainPage_bg_blue;
+		}
+	}
+
+	.active {
+		background: $color_blue_dark;
+		color: #ffffff;
+	}
+}
+
+.content {
+	flex: 1;
+
+	label {
+		display: block;
+		margin-bottom: 16px;
+		font-weight: 500;
+
+		input,
+		select {
+			display: block;
+			width: 100%;
+			max-width: 300px;
+			margin-top: 6px;
+			padding: 8px;
+			border: 1px solid #cccccc;
+			border-radius: 4px;
+			font-size: 14px;
+		}
+	}
+}
