@@ -1,20 +1,22 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FormElSize, ThemeColor } from '../../../../app/types';
 import Button from '../../../../components/ui/button/Button';
 import Checkbox from '../../../../components/ui/checkbox/checkbox';
 import Form from '../../../../components/ui/form/Form';
 import Input from '../../../../components/ui/input/Input';
 import styles from './loginForm.module.scss';
-import { useAuth } from '../../../../context/AuthContext';
-import { loginUser } from '../../../../services/loginUser';
+import { setAuth } from '../../../../utils/auth';
+import { loginUser } from '../../../../services/authService';
 
 interface LoginFormProps {
 	onFormChange: (type: 'login' | 'register' | 'reminder') => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
-	const { login } = useAuth();
+	const location = useLocation();
+	const from = (location.state as { from?: Location })?.from?.pathname || '/';
+
 	const navigate = useNavigate();
 	const size = FormElSize.LARGE;
 	const [loading, setLoading] = useState(false);
@@ -38,13 +40,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 				pass: formData.password,
 			});
 
-			if (!res.ok) {
-				throw new Error('Login failed');
-			}
+			const { token, error } = await res.json();
 
-			const result = await res.json();
-			login();
-			navigate('/');
+			if (res.ok && token) {
+				setAuth(token);
+				navigate(from, { replace: true });
+			} else {
+				alert(error || 'Login failed');
+			}
 		} catch (error) {
 			console.error(error);
 			alert('Invalid credentials');
@@ -83,6 +86,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFormChange }) => {
 
 			<Button
 				size={size}
+				type='submit'
 				onClick={onSubmit}
 				label='Log in'
 				title='Log in'

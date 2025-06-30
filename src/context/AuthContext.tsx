@@ -1,34 +1,27 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { checkAuth, setAuth, removeAuth } from '../utils/auth';
+import React, { createContext, useContext, useState } from 'react';
+import { removeAuth } from '../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 interface AuthContextType {
 	isAuth: boolean;
 	setIsAuth: (value: boolean) => void;
 	logout: () => void;
-	login: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [isAuth, setIsAuth] = useState(false);
-
-	useEffect(() => {
-		setIsAuth(checkAuth());
-	}, []);
-
-	const login = () => {
-		setIsAuth(true);
-		setAuth(true);
-	};
+	const navigate = useNavigate();
 
 	const logout = () => {
 		removeAuth();
 		setIsAuth(false);
+		navigate('/login');
 	};
 
 	return (
-		<AuthContext.Provider value={{ isAuth, setIsAuth, logout, login }}>
+		<AuthContext.Provider value={{ isAuth, setIsAuth, logout }}>
 			{children}
 		</AuthContext.Provider>
 	);

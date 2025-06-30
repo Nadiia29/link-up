@@ -2,16 +2,14 @@ import styles from './Header.module.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
 import LogoutForm from '../../../pages/login/components/logoutForm/LogoutForm';
-import { useAuth } from '../../../context/AuthContext';
+// import { useAuth } from '../../../context/AuthContext';
+import { clearUser } from '../../../store/userSlice';
+import { useDispatch } from 'react-redux';
 
 const Header: React.FC = () => {
 	const navigate = useNavigate();
-	const { logout } = useAuth();
-
-	const handleLogout = () => {
-		logout();
-		navigate('/login');
-	};
+	// const { logout } = useAuth();
+	const dispatch = useDispatch();
 
 	return (
 		<header className={styles.header}>
@@ -24,7 +22,7 @@ const Header: React.FC = () => {
 			</div>
 
 			<div className={styles.logout}>
-				<LogoutForm onLogout={handleLogout} />
+				<LogoutForm />
 			</div>
 		</header>
 	);

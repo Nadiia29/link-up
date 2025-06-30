@@ -26,7 +26,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onFormChange }) => {
 			const result = await response.json();
 
 			if (response.ok) {
-				console.log('Successful registration!');
+				alert('Successful registration! Now log in');
 				onFormChange('login');
 			} else {
 				console.error('Registration error:', result.error);

@@ -1,22 +1,25 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import Header from '../components/layout/header/Header';
 import Sidebar from '../components/layout/sidebar/Sidebar';
-import styles from './App.module.scss';
 import HomePage from '../pages/home/HomePage';
 import LoginPage from '../pages/login/LoginPage';
-import { useEffect } from 'react';
-import { checkAuth } from '../utils/auth';
-import AuthGuard from '../guards/authGuard/AuthGuard';
 import ProfilePage from '../pages/profile/Profile';
-import { useAuth } from '../context/AuthContext';
 import Settings from '../pages/settings/Settings';
+
+import AuthGuard from '../guards/authGuard/AuthGuard';
+
+import { checkAuth } from '../utils/auth';
+import { useAuth } from '../context/AuthContext';
+import styles from './App.module.scss';
 
 function App() {
 	const { isAuth, setIsAuth } = useAuth();
 
 	useEffect(() => {
 		setIsAuth(checkAuth());
-	}, [setIsAuth]);
+	}, [isAuth]);
 
 	return (
 		<div className={styles.app}>
