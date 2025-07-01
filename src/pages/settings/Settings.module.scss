@@ -1,17 +1,33 @@
 @use '../../assets/scss/vars/index.scss' as *;
+@use '../../assets/scss/mixins/mixins' as *;
 
 .settingsWrapper {
-	padding: 32px;
+	padding: 30px;
 
 	h1 {
-		font-size: 32px;
+		font-size: 26px;
 		margin-bottom: 16px;
+		display: block;
+		width: 200px;
+		text-align: center;
+	}
+}
+
+@include tablet-sm {
+	.settingsWrapper {
+		padding: 20px;
 	}
 }
 
 .settingsContainer {
 	display: flex;
 	gap: 32px;
+}
+
+@include tablet-sm {
+	.settingsContainer {
+		flex-direction: column;
+	}
 }
 
 .sidebar {
@@ -41,13 +57,25 @@
 	}
 }
 
+@include tablet-sm {
+	.sidebar {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 12px;
+
+		button {
+			flex: 1 1 calc(50% - 10px);
+			text-align: center;
+		}
+	}
+}
+
 .content {
 	flex: 1;
 
 	label {
 		display: block;
-		margin-bottom: 16px;
-		font-weight: 500;
+		font-weight: 700;
 
 		input,
 		select {
@@ -60,5 +88,11 @@
 			border-radius: 4px;
 			font-size: 14px;
 		}
+	}
+}
+@include tablet {
+	.content label input,
+	.content label select {
+		max-width: 100%;
 	}
 }
