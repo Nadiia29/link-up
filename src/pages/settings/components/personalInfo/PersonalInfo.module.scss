@@ -1,0 +1,58 @@
+@use '../../../../assets/scss/vars/index.scss' as *;
+@use '../../../../assets/scss/mixins/mixins' as *;
+
+.wrapper {
+	width: 500px;
+	padding: 10px;
+	margin-top: -5px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+@include tablet-sm {
+	.wrapper {
+		width: 100%;
+		padding: 0;
+	}
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+input,
+select {
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+@include tablet-sm {
+	input,
+	select {
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+.saveBtn {
+	padding: 10px 16px;
+	background-color: $color_blue_dark;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $color_blue_dark;
+	}
+}
+@include mobile {
+	.saveBtn {
+		width: 100%;
+	}
+}
