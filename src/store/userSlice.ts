@@ -3,8 +3,10 @@ import { getProfile } from '../services/profileService';
 
 interface User {
 	name: string;
-	status: string;
 	email: string;
+	avatar?: string;
+	status?: string;
+	cover?: string;
 }
 
 interface UserState {
@@ -35,6 +37,11 @@ const userSlice = createSlice({
 			state.user = null;
 			state.status = 'idle';
 		},
+		updateUser(state, action: PayloadAction<Partial<User>>) {
+			if (state.user) {
+				state.user = { ...state.user, ...action.payload };
+			}
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -52,5 +59,5 @@ const userSlice = createSlice({
 	},
 });
 
-export const { clearUser } = userSlice.actions;
+export const { clearUser, updateUser } = userSlice.actions;
 export default userSlice.reducer;

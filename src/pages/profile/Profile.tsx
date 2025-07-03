@@ -42,7 +42,12 @@ const ProfilePage: React.FC = () => {
 			<Backdrop />
 			<div className={styles.profile_container}>
 				<div className={styles.profile_inner}>
-					<UserInfoCard name={user.name} status={user.status} email={user.email} />
+					<UserInfoCard
+						name={user.name}
+						status={user.status}
+						email={user.email}
+						avatar={user.avatar}
+					/>
 
 					<FriendCard friends={friends} />
 				</div>

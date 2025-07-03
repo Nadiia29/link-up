@@ -6,15 +6,16 @@ import Button from '../../../components/ui/button/Button';
 
 interface Props {
 	name: string;
-	status: string;
+	status?: string;
 	email: string;
+	avatar?: string;
 }
 
-const UserInfoCard: React.FC<Props> = ({ name, status, email }) => {
+const UserInfoCard: React.FC<Props> = ({ name, status, email, avatar }) => {
 	const navigate = useNavigate();
 	return (
 		<div className={styles.profile_box}>
-			<img src={maleAvatar} alt='Default Avatar' className={styles.avatar} />
+			<img src={avatar || maleAvatar} alt='User Avatar' className={styles.avatar} />
 			<h2 className={styles.name}>{name}</h2>
 			<p className={styles.status}>{status}</p>
 			<p className={styles.email}>{email}</p>
