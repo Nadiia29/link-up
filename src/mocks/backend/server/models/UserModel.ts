@@ -8,5 +8,7 @@ export class UserModel implements User {
         public pass: string,
         public email: string,
         public image: string,
+        public status: string,
+        public background: string,
     ) {}
 }
