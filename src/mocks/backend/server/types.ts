@@ -9,4 +9,6 @@ export interface User {
     pass: string;
     email: string;
     image: string;
+    status: string;
+    background: string;
 }
