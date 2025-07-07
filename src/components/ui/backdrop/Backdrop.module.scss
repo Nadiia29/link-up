@@ -1,5 +1,13 @@
+@use '../../../assets/scss/mixins/mixins' as *;
+
+.backdrop {
+	background-color: #f0f0f0;
+	border-radius: 16px;
+	overflow: hidden;
+}
+
 .backdrop img {
-	width: 100%;
+	width: 1250px;
 	height: 220px;
 	object-fit: cover;
 	border-radius: 16px;

@@ -1,4 +1,5 @@
 @use '../assets/scss/vars/index.scss' as *;
+@use '../assets/scss/mixins/mixins' as *;
 
 .app {
 	display: grid;
@@ -15,6 +16,16 @@
 	grid-area: main;
 	padding: 15px;
 	background: $mainPage_bg_purple;
+
+	@include tablet {
+		width: 100%;
+		max-width: 780px;
+	}
+
+	@include mobile {
+		width: 100%;
+		max-width: 400px;
+	}
 
 	// & > * {
 	// 	display: none;

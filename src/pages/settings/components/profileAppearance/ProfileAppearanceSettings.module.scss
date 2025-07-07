@@ -1,0 +1,113 @@
+@use '../../../../assets/scss/vars/index.scss' as *;
+@use '../../../../assets/scss/mixins/mixins' as *;
+
+.wrapper {
+	width: 550px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+@include tablet-sm {
+	.wrapper {
+		width: 100%;
+		padding: 0;
+	}
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+input,
+textarea {
+	padding: 10px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+@include tablet-sm {
+	input,
+	textarea {
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+.avatarsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+	gap: 16px;
+	margin-top: 12px;
+}
+
+.avatarOption {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 2px solid transparent;
+	transition: border 0.3s ease;
+
+	&:hover {
+		border-color: $color_blue;
+	}
+
+	&.selected {
+		border-color: $color_blue_dark;
+	}
+}
+
+.coversGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 16px;
+	margin-top: 12px;
+}
+
+.coverOption {
+	width: 100%;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 2px solid transparent;
+	transition: border 0.3s ease;
+
+	&:hover {
+		border-color: $color_blue;
+	}
+
+	&.selected {
+		border-color: $color_blue_dark;
+	}
+}
+
+.saveBtn {
+	margin-top: 16px;
+	padding: 10px 16px;
+	background-color: $color_blue_dark;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $color_blue;
+	}
+
+	&:active {
+		background-color: darken($color_blue_dark, 20%);
+	}
+}
+
+@include mobile {
+	.saveBtn {
+		width: 100%;
+	}
+}

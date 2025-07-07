@@ -48,7 +48,11 @@ select {
 	cursor: pointer;
 
 	&:hover {
-		background-color: $color_blue_dark;
+		background-color: $color_blue;
+	}
+
+	&:active {
+		background-color: darken($color_blue_dark, 20%);
 	}
 }
 @include mobile {

@@ -5,11 +5,11 @@
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 18px;
 	font-size: $font_size_extra_large;
 
 	@include tablet {
-		width: 90%;
+		width: 100%;
+		max-width: 760px;
 		font-size: $font_size_large;
 	}
 
